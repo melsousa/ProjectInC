@@ -1,0 +1,69 @@
+#include <stdio.h>
+#include <string.h>
+    
+    int l;
+    
+    void a(char *s){
+        int b = 5;
+        int length = strlen(s);
+        
+        printf("%*s%*c",((b - length) >> 1) + length //string length + padding spaces
+            , s
+            , (( b - length) >> 1) + (( b - length) & 1)
+            , ' '
+        );
+    }
+    
+    void space(int spa){
+        for(l = 1; l <=spa; l++){
+          a(" ");
+        }
+    }
+    
+    void valor(int val){
+        for(l = 1; l <= val; l++){
+           a(" * ");
+        }
+        printf("\n");
+    }
+    
+
+    int main(){
+        
+        int num, spa, value,i;
+        
+        do{
+            printf("Digite um número impar: ");
+            scanf("%d", &num);
+            
+        }while(num % 2 == 0);
+        
+            
+        for(i = 1; i < num; i++){
+               if(i % 2 == 1){
+                   
+                  spa = num - (i / 2);
+                  space(spa);
+                  
+                  value = i;
+                  valor(value);
+                }
+        }
+        
+        for(i = num; i > 0; i--){
+                if(i % 2 == 1){
+                    
+                    spa = num - (i / 2);
+                    space(spa);
+                    
+                    value = i;
+                    valor(value);
+                }
+        }
+        
+        
+        return 0;
+    }
+
+
+
